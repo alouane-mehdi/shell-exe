@@ -1,0 +1,12 @@
+
+
+fichier_csv="Shell_Userlist.csv"
+
+
+while IFS= read -r nom_utilisateur mot_de_passe groupe_utilisateur
+do
+      nano useradd -m -p "$(openssl passwd -1 "$mot_de_passe")" -g "$groupe_utilisateur" "$nom_utilisateur"
+
+done < "$fichier_csv"
+
+
